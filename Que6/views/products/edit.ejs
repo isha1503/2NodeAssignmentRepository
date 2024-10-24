@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Product</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Edit Product</h1>
+
+        <form action="/products/<%= product._id %>" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name">Product Name</label>
+                <input type="text" name="name" id="name" class="form-control" value="<%= product.name %>" required>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea name="description" id="description" class="form-control"><%= product.description %></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="category">Category</label>
+                <select name="category" id="category" class="form-control" required>
+                    <% categories.forEach(category => { %>
+                        <option value="<%= category._id %>" <%= product.category._id.equals(category._id) ? 'selected' : '' %> >
+                            <%= category.name %>
+                        </option>
+                    <% }) %>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input type="number" name="price" id="price" class="form-control" value="<%= product.price %>" required>
+            </div>
+
+            <div class="form-group">
+                <label for="images">Images</label>
+                <input type="file" name="images" id="images" class="form-control-file" multiple>
+            </div>
+
+            <h3>Current Images</h3>
+            <div class="mb-3">
+                <% if (product.images.length > 0) { %>
+                    <% product.images.forEach(image => { %>
+                        <img src="/uploads/products/<%= image %>" width="100" height="100" alt="<%= product.name %> Image" class="mr-2">
+                    <% }) %>
+                <% } else { %>
+                    <p>No Images</p>
+                <% } %>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Update Product</button>
+        </form>
+
+        <a href="/products" class="btn btn-secondary mt-3">Back to Products</a>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

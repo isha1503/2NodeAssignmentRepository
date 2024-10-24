@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Student</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5" style="max-width: 40%;">
+        <h1 class="text-center mb-4">Create a New Student</h1>
+        <form action="/addstud" method="post" class="border p-4 bg-light shadow-sm rounded">
+            
+            <div class="mb-3">
+                <label for="FirstName" class="form-label">First Name:</label>
+                <input type="text" class="form-control" name="FirstName" id="FirstName" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="LastName" class="form-label">Last Name:</label>
+                <input type="text" class="form-control" name="LastName" id="LastName" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="Contact" class="form-label">Contact:</label>
+                <input type="number" class="form-control" name="Contact" id="Contact" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Gender:</label><br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="Gender" id="Gender" value="Male" required>
+                    <label class="form-check-label" for="male">Male</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="Gender" id="Gender" value="Female" required>
+                    <label class="form-check-label" for="female">Female</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="Gender" id="Gender" value="Other" required>
+                    <label class="form-check-label" for="other">Other</label>
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <label for="Course" class="form-label">Course:</label>
+                <select class="form-select" name="Course" id="Course" required>
+                    <option value="" disabled selected>Select Course</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Information Technology">Information Technology</option>
+                    <option value="Business Administration">Business Administration</option>
+                    <option value="Mechanical Engineering">Mechanical Engineering</option>
+                    <option value="Civil Engineering">Civil Engineering</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="Email" class="form-label">Email:</label>
+                <input type="email" class="form-control" name="Email" id="Email" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="text" class="form-label">Username:</label>
+                <input type="text" class="form-control" name="username" id="username" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="Password" class="form-label">Password:</label>
+                <input type="password" class="form-control" name="password" id="password" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Create Student</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
